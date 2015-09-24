@@ -39,6 +39,8 @@ shinyServer(function(input, output) {
                 df <- data[data$day >= input$n[1] & data$day <= input$n[2],]
                 df_m <- melt(df, id.vars = "day")
                 n1 <- nPlot(value ~ day, group = "variable", data = df_m, type = "multiBarChart")
+                n1$yAxis(axisLabel = "Distance (km)", width = 50 )
+                n1$xAxis(axisLabel = "Period (months)" )
                 n1$addParams(dom = 'myChart')
                 return(n1)
         })
